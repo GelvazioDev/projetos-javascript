@@ -88,6 +88,11 @@ function excluirProduto(codigo){
 }
 
 function incluirProduto(){
+    // limpa os dados antes de incluir
+    document.querySelector("#descricao").value = "";
+    document.querySelector("#preco").value     = "";
+    document.querySelector("#estoque").value   = "";
+
     const method = "GET";
     const rota = "produtos";
     let novoCodigo = 0;
