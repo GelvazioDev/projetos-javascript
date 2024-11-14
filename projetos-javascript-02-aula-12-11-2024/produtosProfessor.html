@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+
+    <link rel="stylesheet" href="css/table.css">
+</head>
+<body onload="loadProdutos()">
+    <section>
+        <!--for demo wrap-->
+        <h1>Consulta de Produtos</h1>
+        <div class="tbl-header">
+            <table>
+                <thead>
+                    <th>Id</th>
+                    <th>Preço</th>
+                    <th>Descrição</th>
+                    <th>Estoque</th>
+                    <th>Ações</th>
+                </thead>
+                <tbody id="consulta-produto">
+
+                </tbody>
+            </table>
+    </div>
+    </section>   
+</body>
+ <!-- JAVASCRIPT SEPARADO -->
+ <script src="js/api.js"></script>
+ <script src="js/produtos.js"></script>
+</html>

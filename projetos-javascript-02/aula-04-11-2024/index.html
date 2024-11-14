@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - 04-11-2024</title>
+</head>
+
+<style>
+    .btn{
+        background-color: aqua;
+        padding: 7px 12px;
+        width: 120px;
+        border-radius: 15px;
+        margin-bottom: 50px;
+    }
+    
+    .btn:hover{
+        cursor: pointer;
+        background-color: rgba(0, 255, 255, 0.358);
+    }
+</style>
+<body>
+    <span>Ola Senac!</span>
+    <p>Ola Senac 2!</p>
+    <p>Ola Senac 3!</p>
+    <p>Ola Senac 4!</p>
+    <p>Ola Senac 5!</p>
+    <p>Ola Senac 6!</p>    
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>Sobre</li>
+            <li>Contato</li>
+            <li>Login</li>
+        </ul>
+    </nav>
+
+    <hr>
+    <div class="lista-senac">
+        <h3>Senac 1</h3>
+        <h3>Senac 2</h3>
+        <h3>Senac 3</h3>
+        <h3>Senac 4</h3>
+    </div>
+    <div id="lista-senac">
+        <h3>Senac 10</h3>
+        <h3>Senac 20</h3>
+        <h3 id="lista-senac-30">
+            <div>Senac 30</div>
+        </h3>
+        <h3>Senac 40</h3>
+    </div>
+
+    <button onclick="minhaFuncao2()">Chamar Funcao 2!</button>
+
+    <div class="btn" onclick="minhaFuncao2()">Chamar Funcao 2!</div>
+</body>
+
+<script defer async>
+    console.log("ola");
+
+    // Captura(Seletores) de elemento html    
+    // Elemento
+    const meuH1 = document.querySelector("span");
+    meuH1.style.color = "blue";
+    meuH1.style.fontSize = "40px";
+    meuH1.style.fontWeight = "bold";
+
+    // Selecionando Varios elementos
+    const aListaElementos = document.querySelectorAll("p");
+    aListaElementos.forEach(function(elemento, indice) {
+        console.log('[forEach]', elemento, indice);
+    })
+
+    // Selecionando Varios elementos 2
+    const aListaElementos2 = document.querySelectorAll("li");
+    aListaElementos2.forEach(function(elemento, indice) {
+        console.log('[forEach - li]', elemento, indice);
+        // Aplicando estilo em tempo de execucao
+        elemento.style.listStyle = "none";
+
+        //conteudo do elemento
+        const content = elemento.textContent;
+        console.log("Conteudo: " + content);
+
+        if(content == "Home"){
+            // Aplica estilo de selecionado
+            elemento.style.color = "blue";
+            elemento.style.textTransform = "uppercase";
+            elemento.textContent = content + " - 12";
+        }
+    })
+
+    meuH1.style.color = "blue";
+    meuH1.style.fontSize = "40px";
+    meuH1.style.fontWeight = "bold";
+
+    // Classe
+    const aListaElementos3 = document.querySelectorAll(".lista-senac");
+    aListaElementos3.forEach(function(elemento, indice) {
+        console.log('[forEach - classe - lista-senac]', elemento, indice);
+    })
+
+    // id
+    const aListaElementos4 = document.querySelectorAll("#lista-senac");
+    aListaElementos4.forEach(function(elemento, indice) {
+        console.log('[forEach - id - lista-senac]', elemento, indice);
+    })
+    
+    // id
+    const elemento5 = document.querySelector("#lista-senac-30");
+    elemento5.style.color = "blue";
+    elemento5.style.textTransform = "uppercase";
+
+    const content2 = elemento5.textContent;
+    elemento5.textContent = content2 + " - 12";
+
+</script>
+
+<script src="script.js"></script>
+</html>
