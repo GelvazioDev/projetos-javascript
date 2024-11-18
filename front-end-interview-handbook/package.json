@@ -1,8 +1,0 @@
-{
-  "scripts": {
-    "format-mdx": "prettier --write \"packages/**/en-US.{md,mdx}\""
-  },
-  "devDependencies": {
-    "prettier": "^2.7.1"
-  }
-}
