@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05-11-2024</title>
+</head>
+<body onload="onloadJavaScriptTeste()">
+    <h1>Principais eventos javascript</h1>
+    <h3>onclick</h3>
+    <h3>onchange</h3>
+    <h3>onblur</h3>
+
+    <hr>
+    <span>Atributtes</span>
+    <br>
+    <br>
+    <label for="nome">Codigo:</label>
+    <input type="text" id="codigo" onchange="onchangeTeste()">
+
+    <br>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" onchange="onchangeTeste()">
+
+    <br>
+    <label for="nome">Telefone:</label>
+    <input type="text" id="telefone" onchange="onchangeTeste()">
+
+    <hr>
+    <span id="linha" teste="123">Minha linha</span>
+
+    <button onclick="clickBotao()">Clicando no botão</button>
+
+    <br>
+    <br>
+    <button onclick="preencherFormulario()">Preencher Formulario</button>
+    <br>
+    <br>
+    <br>
+    <button onclick="preencherTabela()">Preencher Tabela</button>
+    <table id="minhaTabela" border="1">
+        <thead>
+            <th>Codigo</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </thead>
+        <tbody id="corpoTabela">
+
+        </tbody>
+    </table>
+</body>
+
+<script>
+    function onloadJavaScriptTeste(){
+        console.log("Escondendo a linha ao iniciar");
+        document.querySelector("#linha").setAttribute("hidden", true)        
+        document.querySelector("#codigo").focus();
+    }
+
+    function onchangeTeste(){
+        const nome = document.querySelector("#nome").value;
+        if(nome == 1){
+            //alert("Digitou o numero 1!");
+            // Mostra a linha
+
+            // document.querySelector("#linha").setAttribute("hidden", false)
+            document.querySelector("#linha").removeAttribute("hidden")
+        }
+    }
+
+    function clickBotao(){
+        alert("Clicou no botão!");
+    }
+
+    // setando o conteudo de um formulario
+    function preencherFormulario(){
+        // Busca do banco de dados
+        document.querySelector("#codigo").value = 1;
+        document.querySelector("#nome").value = "joao";
+        document.querySelector("#telefone").value = "(47)98863-1518";
+    }
+
+    // setando o conteudo de um html
+    // preenchendo as informacoes de uma consulta - tabela
+    function preencherTabela(){
+        // Busca do banco de dados
+        let corpoTabela = document.querySelector("#corpoTabela");
+        
+        const linha = `
+            <tr>
+                <td>1</td>
+                <td>João</td>
+                <td>(47)98862-1545</td>
+            </tr>
+        `;        
+        corpoTabela.innerHTML = linha;
+    }
+
+</script>
+</html>

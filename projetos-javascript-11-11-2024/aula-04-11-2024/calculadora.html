@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: aqua;
+    }
+
+    .calculadora {
+        background-color: aquamarine;
+        border: 1px solid aqua;
+        border-radius: 15px;
+        width: 450px;
+        height: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .item span {
+        font-size: 30px;
+    }
+
+    .visor input {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 10px;
+        background-color: aliceblue;
+        font-size: 23px;
+    }
+
+    .btn {
+        background-color: aqua;
+        padding: 10px 48px;
+        border-radius: 15px;
+        margin-bottom: 50px;
+    }
+
+    .item-acoes span {
+        padding: 10px 41px;
+    }
+
+    .btn:hover {
+        cursor: pointer;
+        background-color: rgba(8, 63, 63, 0.358);
+    }
+</style>
+
+<body>
+    <div class="calculadora">
+        <div class="visor item">
+            <input type="text" disabled id="visor">
+        </div>
+        <div class="item">
+            <span class="btn" onclick="clickNumero(1)">1</span>
+            <span class="btn" onclick="clickNumero(2)">2</span>
+            <span class="btn" onclick="clickNumero(3)">3</span>
+        </div>
+        <div class="item">
+            <span class="btn" onclick="clickNumero(4)">4</span>
+            <span class="btn" onclick="clickNumero(5)">5</span>
+            <span class="btn" onclick="clickNumero(6)">6</span>
+        </div>
+        <div class="item">
+            <span class="btn" onclick="clickNumero(7)">7</span>
+            <span class="btn" onclick="clickNumero(8)">8</span>
+            <span class="btn" onclick="clickNumero(9)">9</span>
+        </div>
+        <!-- operacoes -->
+        <div class="operacoes item">
+            <span class="btn" id="operador2" onclick="clickOperacao('0')">0</span>
+            <span class="btn" id="operador1" onclick="clickOperacao('+')">+</span>
+            <span class="btn" id="operador2" onclick="clickOperacao('-')">-</span>
+        </div>
+        
+        <div class="operacoes item">            
+            <span class="btn" id="operador2" onclick="clickOperacao('*')">*</span>
+            <span class="btn" id="operador2" onclick="clickOperacao('/')">/</span>
+            <span class="btn" id="operador2" onclick="clickOperacao(',')">,</span>
+        </div>
+        
+        <!-- Executar operacoes -->
+        <div class="item item-acoes">
+            <span class="btn btn-apagar" onclick="clickOperacao('apaga')"><=</span>
+            <span class="btn btn-limpar" onclick="clickOperacao('ce')">ce</span>
+            <span class="btn btn-igual" onclick="clickOperacao('=')">=</span>
+        </div>
+    </div>
+</body>
+
+<script>
+    var LISTA_CARACTER_DIGITADO = new Array();
+    function clickNumero(numero) {
+        let visor = document.querySelector("#visor").value;
+        document.querySelector("#visor").value = visor + numero;
+
+        LISTA_CARACTER_DIGITADO.push(numero);
+    }
+
+    function clickOperacao(operacao) {
+        if(operacao != "apaga"){
+            LISTA_CARACTER_DIGITADO.push(operacao);
+        }
+
+        let visor = document.querySelector("#visor").value;
+        if (operacao == "=") {
+            const resultado = eval(visor);
+            document.querySelector("#visor").value = visor + " " + operacao + " " + resultado;
+        } else if (operacao == "ce") {
+            LISTA_CARACTER_DIGITADO = new Array();
+            document.querySelector("#visor").value = "";
+        } else if (operacao == "apaga") {
+            LISTA_CARACTER_DIGITADO.pop();
+            document.querySelector("#visor").value = LISTA_CARACTER_DIGITADO.join("");
+        } else {
+            document.querySelector("#visor").value = visor + " " + operacao + " ";
+        }
+    }
+</script>
+
+</html>

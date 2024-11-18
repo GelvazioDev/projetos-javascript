@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input[type=text], select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    .formularioProduto {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      width: 700px;
+    }
+</style>
+
+<body onload="loadProdutos()">
+    <h1>Cadastro de Produto</h1>
+    <div class="formularioProduto">
+        <form action="#">
+            <div class="cadastro">
+                <label for="id">Código:</label>
+                <input type="text" id="id">
+            </div>
+            
+            <div class="cadastro">
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao">
+            </div>
+            <div class="cadastro">
+                <label for="preco">Preço:</label>
+                <input type="text" id="preco">
+            </div>
+            <div class="cadastro">
+                <label for="estoque">Estoque:</label>
+                <input type="text" id="estoque">
+            </div>
+            
+            <button onclick="confirmarProduto()">Confirmar</button>
+        </form>
+    </div>
+    <hr>
+    <h1>Consulta de Produtos</h1>
+    <table border="1">
+        <thead>
+            <th>Id</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Estoque</th>
+            <th>Ações</th>
+        </thead>
+        <tbody id="consulta-produto"></tbody>
+    </table>    
+</body>
+ <!-- JAVASCRIPT SEPARADO -->
+ <script src="js/api.js"></script>
+ <script src="js/produtos.js"></script>
+
+ <!-- exportar em pdf -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs" crossorigin="anonymous"></script>
+</html>
