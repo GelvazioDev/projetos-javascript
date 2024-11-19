@@ -1,9 +1,14 @@
 # Lista Alunos Hackaton Rio do Sul
-* Adriano - verificar
+* ok - * Adriano - adriano.kalbusch@alunos.sc.senac.br 
+* ok - * Cauê
+* ok -* Vinicius
+* ok -* Bruna - 
+* ok * Ryan
+* ok * Helton
+* ok * Romulo
 
-* Helton
-* Bruna
-* Romulo
-* Cauê
-* Ryan
-* Vinicius
+
+
+
+
+
